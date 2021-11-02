@@ -29,4 +29,11 @@ public class MathController {
         int answer = num1 * num2;
         return num1 + " times " + num2 + " = " + answer;
     }
+
+    @RequestMapping(path = "divide/{num1}/by/{num2}", method = RequestMethod.GET)
+    @ResponseBody
+    public String divideNumbers(@PathVariable int num1, @PathVariable int num2) {
+        int answer = num1 / num2;
+        return num1 + " divided by " + num2 + " = " + answer;
+    }
 }
