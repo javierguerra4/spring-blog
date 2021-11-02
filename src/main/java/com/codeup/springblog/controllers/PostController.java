@@ -24,13 +24,13 @@ public class PostController {
     @GetMapping("/posts/create")
     @ResponseBody
     public String formPost() {
-        return ;
+        return "";
     }
 
     @PostMapping("/post/create")
     @ResponseBody
     public String createPost() {
-            return ;
+            return "";
 
     }
 }
