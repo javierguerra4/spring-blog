@@ -11,8 +11,8 @@
 
 <div th:if="${roast}">
     <h2>You selected <span th:text="${roast}"></span> roast!</h2>
-<p th:if="${roast} == 'dark'">You chose correctly!</p>
-<p th:if="${roast} != 'dark'">That is incorrect!</p>
+<p th:if="${choseDark}">You chose correctly!</p>
+<p th:if="!${choseDark}">That is incorrect!</p>
 </div>
 <h2>Select your favored roast:</h2>
 <ul>

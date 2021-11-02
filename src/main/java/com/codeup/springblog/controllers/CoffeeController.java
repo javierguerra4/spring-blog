@@ -20,7 +20,7 @@ public class CoffeeController {
         if(roast.equals("dark")){
             choseDark = true;
         }
-        model.addAttribute("")
+        model.addAttribute("choseDark", choseDark);
         return "views-lec/coffee";
     }
 }
