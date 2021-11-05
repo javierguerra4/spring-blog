@@ -6,13 +6,12 @@
 </head>
 <body>
 <h1>Welcome to the coffee page!</h1>
-
-<!--This is a thymeleaf attribute-->
-
-<div th:if="${roast}">
+<div th:if="${selections}">
     <h2>You selected <span th:text="${roast}"></span> roast!</h2>
-<p th:if="${choseDark}">You chose correctly!</p>
-<p th:if="!${choseDark}">That is incorrect!</p>
+    <p>Here are some options for you:</p>
+    <ul>
+        <li th:each="selection : ${selections}"><p><span th:text="${selection.brand}"></span> <span th:text="${selection.origin}"></span> <span th:text="${selection.roast}"></span> roast</p></li>
+    </ul>
 </div>
 <h2>Select your favored roast:</h2>
 <ul>

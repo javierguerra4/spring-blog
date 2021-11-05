@@ -1,18 +1,24 @@
 package com.codeup.springblog.models;
 
 public class Coffee {
-
-
     private String roast;
     private String origin;
+    private String brand;
 
-    public Coffee() {
-
+    public String getBrand() {
+        return brand;
     }
 
-    public Coffee(String roast, String origin) {
+    public void setBrand(String brand) {
+        this.brand = brand;
+    }
+
+    public Coffee() {
+    }
+
+    public Coffee(String roast, String brand) {
         this.roast = roast;
-        this.origin = origin;
+        this.brand = brand;
     }
 
     public String getRoast() {
@@ -30,6 +36,4 @@ public class Coffee {
     public void setOrigin(String origin) {
         this.origin = origin;
     }
-
-
 }
