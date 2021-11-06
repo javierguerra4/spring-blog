@@ -12,13 +12,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length =100)
     private String username;
 
     @Column(nullable = false)
     private String email;
 
-    @Column(nullable = false)
+    @Column(nullable = false, length =16)
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
