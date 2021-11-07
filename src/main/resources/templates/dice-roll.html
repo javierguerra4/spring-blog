@@ -2,9 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Dice-roll</title>
 </head>
 <body>
+<h1>Roll of the Dice</h1>
+<div th:if="${guess}">
+    <h2>You rolled a:</h2>
+    <p th:text="${guess}"></p>
+</div>
 
+<h2>The roll was:</h2>
+<p th:text="${roll}"></p>
 </body>
 </html>
