@@ -1,17 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Dice-roll</title>
+    <title>Roll of the Dice</title>
 </head>
 <body>
 <h1>Roll of the Dice</h1>
 <div th:if="${guess}">
-    <h2>You rolled a:</h2>
+    <h2>You guessed:</h2>
     <p th:text="${guess}"></p>
+    <h2>The roll was:</h2>
+    <p th:text="${roll}"></p>
+    <p th:if="${guessedRight}">You guessed right!</p>
+    <p th:if="!${guessedRight}">Try again!</p>
 </div>
-
-<h2>The roll was:</h2>
-<p th:text="${roll}"></p>
+<h2>Pick a number:</h2>
+<ul>
+    <li><a href="/dice-roll/1">1</a></li>
+    <li><a href="/dice-roll/2">2</a></li>
+    <li><a href="/dice-roll/3">3</a></li>
+    <li><a href="/dice-roll/4">4</a></li>
+    <li><a href="/dice-roll/5">5</a></li>
+    <li><a href="/dice-roll/6">6</a></li>
+</ul>
 </body>
 </html>
