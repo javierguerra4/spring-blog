@@ -24,23 +24,7 @@ public class CoffeeController {
 
     @GetMapping("/coffee/{roast}")
     public String roastSelection(@PathVariable String roast, Model model){
-        Coffee selection = new Coffee(roast, "Cool Beans");
-        Coffee selection2 = new Coffee(roast, "Jolting Joe");
-        if (roast.equals("dark")){
-            selection.setOrigin("Colombia");
-            selection2.setOrigin("Brazil");
-        } else if (roast.equals("medium")){
-            selection.setOrigin("New Guinea");
-            selection2.setOrigin("Sumatra");
-        } else {
-            selection.setOrigin("Kenya");
-            selection2.setOrigin("Ethiopia");
-        }
-        List<Coffee> selections = new ArrayList<>();
-        selections.add(selection);
-        selections.add(selection2);
-        model.addAttribute("roast", roast);
-        model.addAttribute("selections", selections);
+        model.addAttribute("selections", coffeeRepository.findByRoast(roast));
         return "views-lec/coffee";
     }
 
