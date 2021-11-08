@@ -29,7 +29,8 @@ public class CoffeeController {
     }
 
     @GetMapping("/coffee/create")
-    public String showCreateCoffeeForm(){
+    public String showCreateCoffeeForm(Model model){
+        model.addAttribute("coffee", new Coffee());
         return "coffees/create";
     }
 

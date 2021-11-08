@@ -1,18 +1,18 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Add a coffee to the database</title>
 </head>
 <body>
 <h1>Create-a-coffee</h1>
-<form action="/coffee/create" method="post">
+<form th:action="@{/coffee/create}" th:method="post" th:object="${coffee}">
     <label for="brand">Brand:</label>
-    <input type="text" name="brand" id="brand"><br>
+    <input type="text" th:fields="*{brand}" id="brand"><br>
     <label for="origin">Origin:</label>
-    <input type="text" name="origin" id="origin"><br>
+    <input type="text" th:fields="*{origin}" id="origin"><br>
     <label for="roast">Roast:</label>
-    <input type="text" name="roast" id="roast"><br>
+    <input type="text" th:fields="*{roast}" id="roast"><br>
     <button type="submit">Submit</button>
 </form>
 </body>
