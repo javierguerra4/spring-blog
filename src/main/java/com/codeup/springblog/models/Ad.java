@@ -17,6 +17,11 @@ public class Ad {
     @Column(columnDefinition = "TEXT NOT NULL")
     private String description;
 
+
+
+    @OneToOne
+    private User owner;
+
     public Ad() {
 
     }
@@ -51,5 +56,12 @@ public class Ad {
         this.description = description;
     }
 
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
 
 }
