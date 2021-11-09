@@ -1,6 +1,7 @@
 package com.codeup.springblog.services;
 
 import com.codeup.springblog.models.Ad;
+import com.codeup.springblog.models.Post;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
@@ -9,7 +10,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service("mailService")
-public class EmailServices {
+public class EmailService {
 
     @Autowired
     public JavaMailSender emailSender;
@@ -33,7 +34,22 @@ public class EmailServices {
         }
     }
 
-    public void prepareAndSend(String subject, String body) {
+    public void prepareAndSend(Post post, String title, String body) {
+        SimpleMailMessage msg = new SimpleMailMessage();
+        msg.setFrom(from);
+        msg.setTo(post.getUser().getEmail());
+        msg.setSubject(title);
+        msg.setText(body);
+
+        try{
+            this.emailSender.send(msg);
+        }
+        catch (MailException ex) {
+            // simply log it and go on...
+            System.err.println(ex.getMessage());
+        }
+    }
+    public void prepareAndSend(String email, String message) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom(from);
         msg.setTo(email);

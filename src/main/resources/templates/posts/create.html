@@ -1,17 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Create a Post</title>
-</head>
+<head th:insert="partials/partials.html :: head('Post Create')"></head>
 <body>
-<h1>Create a New Post</h1>
-<form>
-    <label for="title">Create a Title:</label><br>
-    <input type="text" id="title"><br>
-    <label for="description">Create a Description:</label><br>
-    <input type="text" id="description" style=height:100px;><br>
-
-</form>
+<nav th:insert="partials/partials.html :: navbar"></nav>
+<header th:insert="partials/partials.html :: header('Create Post')"></header>
+<main class="container">
+    <form th:insert="partials/partials.html :: post-form(@{/posts/create}, 'Create Post')"></form>
+</main>
+<th:block th:insert="partials/partials.html :: bootstrap-js" />
 </body>
 </html>

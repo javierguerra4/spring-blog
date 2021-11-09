@@ -22,7 +22,7 @@ public class User {
     private String password;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
-        private List<Post> post;
+        private List<Post> posts;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
     private List<Ad> ads;

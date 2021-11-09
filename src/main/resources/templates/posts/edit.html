@@ -1,24 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My blog edit post</title>
-</head>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head th:insert="partials/partials.html :: head('Edit Post')"></head>
 <body>
-<h1> Edit Post</h1>
-
-<form th:method="POST">
-    <div>
-        <label for="title">Title</label>
-        <br>
-        <input name= "title" id="title" type="text" placeholder="Enter Blog Post Title">
-    </div>
-    <div>
-        <label for="body">Body</label>
-        <br>
-    <textarea name="body" id="body" cols="30" rows="10" placeholder="Enter Blog Content"></textarea>
-    </div>
-    <button>Edit post</button>
-</form>
+<nav th:insert="partials/partials.html :: navbar"></nav>
+<header th:insert="partials/partials.html :: header('Edit Post')"></header>
+<main class="container">
+    <form th:insert="partials/partials.html :: post-form(@{/posts/{id}/edit(id=${id})}, 'Edit Post')"></form>
+</main>
+<th:block th:insert="partials/partials.html :: bootstrap-js" />
 </body>
 </html>
