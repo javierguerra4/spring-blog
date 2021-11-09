@@ -9,7 +9,7 @@ import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.stereotype.Service;
 
 @Service("mailService")
-public class EmailService {
+public class EmailServices {
 
     @Autowired
     public JavaMailSender emailSender;
@@ -20,7 +20,7 @@ public class EmailService {
     public void prepareAndSend(Ad ad, String subject, String body) {
         SimpleMailMessage msg = new SimpleMailMessage();
         msg.setFrom(from);
-//        msg.setTo(ad.getOwner().getEmail());
+        msg.setTo(ad.getOwner().getEmail());
         msg.setSubject(subject);
         msg.setText(body);
 

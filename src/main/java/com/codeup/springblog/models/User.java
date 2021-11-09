@@ -24,6 +24,9 @@ public class User {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "user")
         private List<Post> post;
 
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Ad> ads;
+
     public User(){
 
     }
@@ -66,4 +69,11 @@ public class User {
         this.password = password;
     }
 
+    public List<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(List<Post> posts) {
+        this.posts = posts;
+    }
 }

@@ -2,66 +2,63 @@ package com.codeup.springblog.models;
 
 import javax.persistence.*;
 
-@Entity
-public class Ad {
+    @Entity
+    @Table(name="ads")
+    public class Ad {
 
+        @Id
+        @GeneratedValue(strategy = GenerationType.IDENTITY)
+        private long id;
 
+        @Column(nullable = true, length = 300)
+        private String title;
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id;
+        @Column(columnDefinition = "TEXT NOT NULL")
+        private String description;
 
-    @Column(nullable = true, length = 300)
-    private String title;
+        @ManyToOne
+        @JoinColumn(name = "owner_id")
+        private User owner;
 
-    @Column(columnDefinition = "TEXT NOT NULL")
-    private String description;
+        public Ad() {
+        }
 
+        public Ad(long id, String title, String description) {
+            this.id = id;
+            this.title = title;
+            this.description = description;
+        }
 
+        public long getId() {
+            return id;
+        }
 
-    @OneToOne
-    private User owner;
+        public void setId(long id) {
+            this.id = id;
+        }
 
-    public Ad() {
+        public String getTitle() {
+            return title;
+        }
 
-    }
+        public void setTitle(String title) {
+            this.title = title;
+        }
 
-    public Ad(long id, String title, String description) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-    }
+        public String getDescription() {
+            return description;
+        }
 
-    public long getId() {
-        return id;
-    }
+        public void setDescription(String description) {
+            this.description = description;
+        }
 
-    public void setId(long id) {
-        this.id = id;
-    }
+        public User getOwner() {
+            return owner;
+        }
 
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public User getOwner() {
-        return owner;
-    }
-
-    public void setOwner(User owner) {
-        this.owner = owner;
-    }
+        public void setOwner(User owner) {
+            this.owner = owner;
+        }
 
 }
